@@ -4,7 +4,7 @@ const socketOffline = document.getElementById('socketOffline');
 const txtInput = document.getElementById('txtInput');
 const sendButton = document.getElementById('sendButton');
 
-const socket = io('http://localhost:8080/');
+const socket = io();
 
 socket.on('connect', () => {
     console.log('Socket client connected to socket server');
