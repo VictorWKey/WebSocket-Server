@@ -1,6 +1,9 @@
 const socketOnline = document.getElementById('socketOnline');
 const socketOffline = document.getElementById('socketOffline');
 
+const txtInput = document.getElementById('txtInput');
+const sendButton = document.getElementById('sendButton');
+
 const socket = io('http://localhost:8080/');
 
 socket.on('connect', () => {
@@ -16,5 +19,21 @@ socket.on('disconnect', () => {
 
     socketOnline.style.display = 'none';
     socketOffline.style.display = '';
+})
+
+sendButton.addEventListener('click', () => {
+    const message = txtInput.value;
+
+    const payload = {
+        message
+    }
+
+    socket.emit('send-message', payload, (id) => {
+        console.log('Callback that recieves the info from argument callback server', id); // Lo que hace este callback es que recibe info que se haya enviado en el "escucha" de este evento
+    })
+})
+
+socket.on('send-message', payload => {
+    console.log(payload);
 })
 
