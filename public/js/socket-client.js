@@ -4,7 +4,7 @@ const socketOffline = document.getElementById('socketOffline');
 const txtInput = document.getElementById('txtInput');
 const sendButton = document.getElementById('sendButton');
 
-const socket = io();
+const socket = io(); // Ojito que al no poner nada como argumento, se toma por defecto el url main de la aplicacion, en cambio si le poniamos http://localhost:4000/ , heroku no detecta su url en el io() y da un error
 
 socket.on('connect', () => {
     console.log('Socket client connected to socket server');
