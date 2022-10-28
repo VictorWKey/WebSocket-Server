@@ -25,11 +25,6 @@ class Server {
         this.sockets();
     }
 
-
-    async connectDB(){
-        await dbConnection();
-    }
-
     middlewares(){
 
         //Cors
@@ -43,16 +38,15 @@ class Server {
 
     sockets() {
         this.io.on('connection', socketServerConnection)
-
-
     }
 
     listen(){
         this.server.listen(this.port, () => {
             console.log('Server running in port: ' + this.port)
-        });
-        
+        });        
     }
+
+
 
 
 }
