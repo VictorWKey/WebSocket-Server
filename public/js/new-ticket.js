@@ -20,7 +20,7 @@ socket.on('last-ticket', (lastTicket) => {
 newTicketButton.addEventListener('click', () => {
     socket.emit('new-ticket', null, ( generate ) => {
         lblNewTicket.innerText = generate;
-    })
+    });
 });
 
 

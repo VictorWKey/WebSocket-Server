@@ -42,7 +42,7 @@ class TicketControl {
             this.tickets = tickets;
             this.last4 = last4;
         } else {
-            this.saveDB()
+            this.saveDB();
         }
         
     }
@@ -64,7 +64,7 @@ class TicketControl {
         return 'Ticket ' + ticket.number;
     }
 
-    attendTicket(){
+    attendTicket( desktop ){
 
         // We don´t have tickets
         if ( this.tickets.length === 0 ) {
